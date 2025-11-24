@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-p-around_medium app-container">
+        <lightning-layout multiple-rows="true"> 
+            <lightning-layout-item size="12" medium-device-size="4" padding="horizontal-small">
+                <c-recipe-form ongenerate={handleGenerate}></c-recipe-form>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" medium-device-size="8" padding="horizontal-small">
+                <template if:true={formData.ingredients}>
+                    <p><b>Ingredients:</b> {formData.ingredients}</p>
+                    <p><b>Dietary:</b> {formData.dietaryRestrictions}</p>
+                    <p><b>Meal Type:</b> {formData.mealType}</p>
+                    <p><b>Servings:</b> {formData.servings}</p>
+                </template>
+
+                <template if:false={formData.ingredients}>
+                    Recipes will come here.
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
